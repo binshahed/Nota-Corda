@@ -3,6 +3,7 @@ import TeamMember from "../TemMember/TeamMember";
 
 const OurTeams = () => {
   const [members, setMembers] = useState([]);
+  // import from my db
   useEffect(() => {
     fetch("./team.json")
       .then((res) => res.json())

@@ -1,5 +1,5 @@
 import { Button, Card, Col } from "react-bootstrap";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 
 const CourseDetail = (props) => {
   const {
@@ -11,8 +11,9 @@ const CourseDetail = (props) => {
     course_detail,
     course_duration,
   } = props.course;
-  const handleClick = (id) => {
-    console.log(id);
+  const history = useHistory();
+  const handleAdmit = () => {
+    history.push(`/course/${id}`);
   };
 
   return (
@@ -29,13 +30,10 @@ const CourseDetail = (props) => {
             Month
           </Card.Text>
           <Card.Text>
-            <span className="fw-bold">Course Price:</span>
-            {course_price}
+            <span className="fw-bold">Course Price: </span>
+            {course_price}$
           </Card.Text>
-          <Link to={`courses/${id}`} className="btn btn-danger">
-            {" "}
-            more info
-          </Link>
+          <Card.Text>{course_detail}</Card.Text>
         </Card.Body>
       </Card>
     </Col>
